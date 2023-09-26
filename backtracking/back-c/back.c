@@ -24,7 +24,7 @@ char valido(int i, int j);
 void imprime_tab(void);
 
 int main(void){
-
+    
     memset(tabuleiro, UNVIS, sizeof(tabuleiro));
 
     int i = TAM/2;

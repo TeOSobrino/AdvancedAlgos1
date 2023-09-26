@@ -22,7 +22,7 @@ void find_all_subsets(set<int> &answer, vector<int> &curr_subset,
 
                 cout << "recursion forward\nindex = " << index << endl;
                 print_arr(curr_subset);
-
+                
                 curr_subset.push_back(nums[i]);
                 find_all_subsets(answer, curr_subset, nums, i + 1);
                 curr_subset.pop_back();
