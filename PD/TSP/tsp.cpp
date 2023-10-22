@@ -70,7 +70,7 @@ void solve(vector<vector<int>> &adj, vector<vector<int>> &memo, int s, int n)
             for (int next = 0; next < n; next++) {
                 if (next == s || not_in(next, i))
                     continue;
-                //state is the subset excluding the next vertex
+                //state is the subset excluding the next vertex'
                 int state = i ^ (1 << next);
                 int min_dist = INT32_MAX;
 
