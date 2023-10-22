@@ -119,6 +119,7 @@ void solve(vector<vector<int>> &adj, vector<vector<int>> &memo, int s, int n)
 int find_min_cost(vector<vector<int>> &adj, vector<vector<int>> &memo, int s,
                   int n)
 {
+    //iterates in the table's last column (full path)
     int end_state = (1 << n) - 1;
     int min_cost = INT32_MAX;
 
@@ -129,7 +130,8 @@ int find_min_cost(vector<vector<int>> &adj, vector<vector<int>> &memo, int s,
         if(memo[e][end_state] == -1 || adj[e][s] == -1)
             continue;
 
-        int tour_cost = memo[e][end_state] + adj[e][s];
+        //the full path + return cost (commented for the particular problem)
+        int tour_cost = memo[e][end_state]; //+ adj[e][s]; if TSP uncomment
         if( tour_cost < min_cost)
             min_cost = tour_cost;
     }
@@ -168,6 +170,7 @@ int main(void)
     int v, l;
     scanf(" %d %d", &v, &l);
 
+    //-1 represents no path
     vector<vector<int>> adj(v, vector<int>(v, -1));
 
     int p, j, w;
