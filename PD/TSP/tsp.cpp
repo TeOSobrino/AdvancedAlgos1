@@ -42,7 +42,12 @@ void find_subsets(vector<int> &subsets, int r, int n)
 }
 
 /**
- * @brief fills up the memoization table
+ * @brief fills up the memoization table "bottom up" iteratively with respect 
+ * to n, the recursive version basis would be:
+ * 
+ * memo[i][{1, 2,..., i}] = min( memo[k][{1, 2,...,k}] + cost[k][i])
+ * in which {1, 2, ..., k} = {1, 2,...,i} - {i}, i != sthus generating a
+ * number of subsets that is equal to 2^(i-2) (the start can't be removed)
  *
  * @param adj adjacency matrix
  * @param memo memoization table
@@ -104,7 +109,7 @@ void solve(vector<vector<int>> &adj, vector<vector<int>> &memo, int s, int n)
 
 /**
  * @brief finds the cost of minimum tour after the memo table is filled up
- *
+ * 
  * @param adj adjancecy matrix
  * @param memo memoization table
  * @param s starting vertex
